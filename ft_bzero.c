@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjuanena <sjuanena@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:43:37 by sjuanena          #+#    #+#             */
-/*   Updated: 2021/06/17 11:47:39 by sjuanena         ###   ########.fr       */
+/*   Updated: 2021/06/17 20:02:11 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	bzero(void *s, size_t n)
 {
