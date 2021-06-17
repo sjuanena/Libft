@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjuanena <sjuanena@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:43:37 by sjuanena          #+#    #+#             */
-/*   Updated: 2021/05/31 18:17:37 by sjuanena         ###   ########.fr       */
+/*   Updated: 2021/06/17 11:47:39 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	bzero(void *s, size_t n)
 {
-	int		i;
-	char	*str;
-
+	size_t		i;
+	
+	if (!s)
+		return ;
 	i = 0;
-	str = (char *) s;
-	while (i <= n)
+	while (i < n)
 	{
-		str[i] = 0;
+		*(char*)(s + i) = 0;
 		i++;
 	}
-	return (str);
 }
