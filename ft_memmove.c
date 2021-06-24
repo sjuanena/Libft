@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::::*/
-/*ft_memmove.c                                             :+:      :+:    :+:*/
-/*                                                       +:+ +:+         +:+  */
-/*By: sjuanena <sjuanena@student.42urduliz.com>        +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*Created: 2021/06/06 10:35:05 by sjuanena                #+#    #+#          */
-/*Updated: 2021/06/06 10:35:05 by sjuanena               ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 0001/06/06 10:35:05 by anena             #+#    #+#             */
+/*   Updated: 2021/06/21 17:45:39 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*strs;
-	unsigned char	*strd;
+	unsigned char	*dst1;
+	unsigned char	*src1;
 
-	strs = (unsigned char *) src;
-	strd = (unsigned char *) dst;
-	i = 0;
-	if (strs < strd)
-		while (--len >= 0)
-			strd[len] = strs[len];
-	else
-		while (i < len)
+	dst1 = (unsigned char *) dst;
+	src1 = (unsigned char *) src;
+	if (src < dst)
+	{
+		while (len > 0)
 		{
-			strd[i] = strs[i];
-			i++;
+			len--;
+			dst1[len] = src1[len];
 		}
-	return (srtd);
+	}
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
 }

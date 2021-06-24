@@ -6,7 +6,7 @@
 /*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:07:47 by sjuanena          #+#    #+#             */
-/*   Updated: 2021/06/11 19:18:09 by sjuanena         ###   ########.fr       */
+/*   Updated: 2021/06/22 18:39:11 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == (char) c)
-			return (*(s + i));
+		if (s[i] == c)
+			return ((char *)&(s[i]));
 		i++;
 	}
 	if (s[i] == '\0')
-		return (NULL);
+	{
+		if (s[i] == c)
+			return ((char *)&(s[i]));
+	}
+	return (0);
 }

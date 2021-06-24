@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::::*/
-/*ft_strnstr.c                                             :+:      :+:    :+:*/
-/*                                                       +:+ +:+         +:+  */
-/*By: sjuanena <sjuanena@student.42urduliz.com>        +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*Created: 2021/05/26 15:48:06 by sjuanena                #+#    #+#          */
-/*Updated: 2021/05/26 15:48:06 by sjuanena               ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 0001/05/26 15:48:06 by anena             #+#    #+#             */
+/*   Updated: 2021/06/21 19:14:42 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+#include "libft.h"
+
+char	*ft_strnstr(const char	*h, const char	*n, size_t len)
 {
-	char	*str;
 	size_t	i;
 	size_t	j;
+	int		err;
 
-	i = 0;
-	if needle[0] == '\0'
-			return ((char *) haystack);
-	i = 0;
-	while (haystack[i] != '\0')
+	i = -1;
+	while (h[++i] != '\0' && i < len)
 	{
-		j = 0;
-		while (haystack[i + j] == needle[j] && (i + j) < len)
+		j = -1;
+		err = -2;
+		while (n[++j] != '\0')
 		{
-			if (haystack[i + j] == '\0' && needle[j] == '\0')
-				return ((char *)&haystack[i]);
-			j++;
+			err = 0;
+			if (h[i + j] != n[j] || (i + j) >= len)
+			{
+				err = -1;
+				break ;
+			}
 		}
-		if (needle[j] == '\0')
-			return ((char *)haystack + i);
-		i++;
+		if (err == 0)
+			return ((char *)(h + i));
 	}
-	return (0);
+	if (err != -2 && ft_strlen(n) != 0)
+		return (0);
+	return ((char *)(h));
 }

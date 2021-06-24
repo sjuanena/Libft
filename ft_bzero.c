@@ -6,22 +6,24 @@
 /*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 17:43:37 by sjuanena          #+#    #+#             */
-/*   Updated: 2021/06/17 20:02:11 by sjuanena         ###   ########.fr       */
+/*   Updated: 2021/06/22 18:36:09 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t		i;
-	
-	if (!s)
-		return ;
+	char		*str;
+
 	i = 0;
+	str = (char *) s;
+	if (n == 0)
+		return ;
 	while (i < n)
 	{
-		*(char*)(s + i) = 0;
+		str[i] = '\0';
 		i++;
 	}
 }

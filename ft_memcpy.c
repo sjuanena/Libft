@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::::*/
-/*ft_memcpy.c                                              :+:      :+:    :+:*/
-/*                                                       +:+ +:+         +:+  */
-/*By: sjuanena <sjuanena@student.42urduliz.com>        +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*Created: 2021/06/06 10:14:47 by sjuanena                #+#    #+#          */
-/*Updated: 2021/06/06 10:14:47 by sjuanena               ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjuanena <sjuanena@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 0001/06/06 10:14:47 by anena             #+#    #+#             */
+/*   Updated: 2021/06/21 17:44:57 by sjuanena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memcpy(void *restrict dst, const void *restrict src, size_t n)
-{
-	size_t			i;
-	unsigned char	*strs;
-	unsigned char	*strd;
+#include "libft.h"
 
-	strs = (unsigned char *) src;
-	strd = (unsigned char *) dst;
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char		*dst1;
+	char		*src1;
+	size_t		i;
+
 	i = 0;
-	while(i < n)
+	dst1 = (char *) dst;
+	src1 = (char *) src;
+	if (dst1 == 0 && src1 == 0)
+		return (0);
+	while (i < n)
 	{
-		strd[i] = strs[i];
+		dst1[i] = src1[i];
 		i++;
 	}
-	return (strd);
+	return (dst);
 }
